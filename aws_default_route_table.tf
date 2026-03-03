@@ -6,7 +6,7 @@ resource "aws_default_route_table" "route_table_default" {
         gateway_id = aws_internet_gateway.igw.id
     }
 
-    tags = merge(
+    tags = merge( #merge uni duas infos, aqui no caso, ele junta o que está la em locals
         local.common_tags,
         {
             Name = format("%s_route_table", var.environment)
